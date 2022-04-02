@@ -20,8 +20,6 @@ dev.json
 
 app/Config/database.php
 
-app/webroot/database.db
-
 app/Config/core.php
 .gitmodules
 
@@ -29,3 +27,4 @@ config/update
 config/install.txt
 config/installed.txt
 config/secure.txt
+app/Data/database.db
