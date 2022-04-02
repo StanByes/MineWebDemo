@@ -226,19 +226,6 @@ class AppController extends Controller
         $this->isConnected = $this->User->isConnected();
         $this->set('isConnected', $this->isConnected);
 
-        if ($this->isConnected) {
-            $LoginCondition = ($this->here != "/login") || !$this->EyPlugin->isInstalled('phpierre.signinup');
-            if ($this->params['controller'] != "user" and $this->params['controller'] != "ban" and $this->User->isBanned() != false and $LoginCondition) {
-                $this->isBanned = $this->User->isBanned();
-
-                $this->redirect([
-                    'controller' => 'ban',
-                    'action' => 'index',
-                    'plugin' => false,
-                    'admin' => false
-                ]);
-            }
-        }
         $user = ($this->isConnected) ? $this->User->getAllFromCurrentUser() : [];
         if (!empty($user))
             $user['isAdmin'] = $this->User->isAdmin();
@@ -626,17 +613,5 @@ class AppController extends Controller
         $this->response->type('json');
         $this->autoRender = false;
         return $this->response->body(json_encode($data));
-    }
-
-    public function isIPBan($ip) {
-        $this->loadModel("Ban");
-        $ipIsBan = $this->Ban->find('first', ['conditions' => ['ip' => $ip]]);
-
-        if (isset($ipIsBan["Ban"])) {
-            $this->isBanned = $ipIsBan["Ban"]["reason"];
-            return $this->isBanned;
-        } else {
-            return false;
-        }
     }
 }
