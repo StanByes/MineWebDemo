@@ -27,8 +27,8 @@ class UpdateComponent extends CakeObject
         'theme.default.json'
     ];
     private $source = [
-        'repo' => 'MineWebCMS',
-        'owner' => 'MineWeb',
+        'repo' => 'MineWebDemo',
+        'owner' => 'StanByes',
         'versionFile' => 'VERSION'
     ];
     private $controller;
