@@ -17,8 +17,6 @@ if (file_exists(ROOT . '/config/installed.txt') and file_exists(ROOT . '/config/
 
     Router::connect('/maintenance/**', ['controller' => 'maintenance', 'action' => 'index']);
 
-    Router::connect('/profile', ['controller' => 'user', 'action' => 'profile']);
-
     // Admin
     Configure::write('Routing.prefixes', ['admin']);
     Router::connect(

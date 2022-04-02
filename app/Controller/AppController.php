@@ -276,16 +276,6 @@ class AppController extends Controller
                         'permission' => 'MANAGE_USERS',
                         'route' => ['controller' => 'user', 'action' => 'index', 'admin' => true, 'plugin' => false]
                     ],
-                    'BAN__MEMBERS' => [
-                        'icon' => 'ban',
-                        'permission' => 'MANAGE_BAN',
-                        'route' => ['controller' => 'ban', 'action' => 'index', 'admin' => true, 'plugin' => false]
-                    ],
-                    'PERMISSIONS__LABEL' => [
-                        'icon' => 'user',
-                        'permission' => 'MANAGE_PERMISSIONS',
-                        'route' => ['controller' => 'permissions', 'action' => 'index', 'admin' => true, 'plugin' => false]
-                    ],
                     'CONFIG__GENERAL_PREFERENCES' => [
                         'icon' => 'cog',
                         'permission' => 'MANAGE_CONFIGURATION',
@@ -338,37 +328,6 @@ class AppController extends Controller
                     ]
                 ]
             ],
-            'SERVER__TITLE' => [
-                'icon' => 'server',
-                'permission' => 'MANAGE_SERVERS',
-                'menu' => [
-                    'SERVER__LINK' => [
-                        'icon' => 'fas fa-arrows-alt-h',
-                        'permission' => 'MANAGE_SERVERS',
-                        'route' => ['controller' => 'server', 'action' => 'link', 'admin' => true, 'plugin' => false]
-                    ],
-                    'SERVER__BANLIST' => [
-                        'icon' => 'ban',
-                        'permission' => 'MANAGE_SERVERS',
-                        'route' => ['controller' => 'server', 'action' => 'banlist', 'admin' => true, 'plugin' => false]
-                    ],
-                    'SERVER__WHITELIST' => [
-                        'icon' => 'list',
-                        'permission' => 'MANAGE_SERVERS',
-                        'route' => ['controller' => 'server', 'action' => 'whitelist', 'admin' => true, 'plugin' => false]
-                    ],
-                    'SERVER__ONLINE_PLAYERS' => [
-                        'icon' => 'list-ul',
-                        'permission' => 'MANAGE_SERVERS',
-                        'route' => ['controller' => 'server', 'action' => 'online', 'admin' => true, 'plugin' => false]
-                    ],
-                    'SERVER__CMD' => [
-                        'icon' => 'key',
-                        'permission' => 'MANAGE_SERVERS',
-                        'route' => ['controller' => 'server', 'action' => 'cmd', 'admin' => true, 'plugin' => false]
-                    ]
-                ]
-            ],
             'GLOBAL__ADMIN_PLUGINS' => [
                 'icon' => 'puzzle-piece'
             ],
@@ -384,11 +343,6 @@ class AppController extends Controller
                         'icon' => 'mobile',
                         'permission' => 'MANAGE_THEMES',
                         'route' => ['controller' => 'theme', 'action' => 'index', 'admin' => true, 'plugin' => false]
-                    ],
-                    'API__LABEL' => [
-                        'icon' => 'sitemap',
-                        'permission' => 'MANAGE_API',
-                        'route' => ['controller' => 'API', 'action' => 'index', 'admin' => true, 'plugin' => false]
                     ],
                     'NOTIFICATION__TITLE' => [
                         'icon' => 'flag',
