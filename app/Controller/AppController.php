@@ -36,7 +36,7 @@ require ROOT . '/config/function.php';
 class AppController extends Controller
 {
 
-    public $components = ['Util', 'Module', 'Session', 'Cookie', 'Security', 'EyPlugin', 'Lang', 'Theme', 'History', 'Statistics', 'Permissions', 'Update', 'Server', 'EySecurity'];
+    public $components = ['Util', 'Module', 'Session', 'Cookie', 'Security', 'EyPlugin', 'Lang', 'Theme', 'History', 'Permissions', 'Update', 'Server', 'EySecurity'];
     public $helpers = ['Session'];
 
     public $view = 'Theme';
