@@ -241,10 +241,8 @@ class AppController extends Controller
         $users_last = $this->User->find('first', ['order' => 'created DESC']);
         $users_last = $users_last['User'];
         $users_count_today = $this->User->find('count', ['conditions' => ['created LIKE' => date('Y-m-d') . '%']]);
-        $visits_count = $this->Visit->getVisitsCount();
-        $visits_count_today = $this->Visit->getVisitsByDay(date('Y-m-d'))['count'];
         $admin_dark_mode = $this->Cookie->read('use_admin_dark_mode');
-        $this->set(compact('users_count', 'users_last', 'users_count_today', 'visits_count', 'visits_count_today', 'admin_dark_mode'));
+        $this->set(compact('users_count', 'users_last', 'users_count_today', 'admin_dark_mode'));
 
     }
 
@@ -258,20 +256,10 @@ class AppController extends Controller
             'GLOBAL__ADMIN_GENERAL' => [
                 'icon' => 'cogs',
                 'menu' => [
-                    'USER__MEMBERS_REGISTERED' => [
-                        'icon' => 'users',
-                        'permission' => 'MANAGE_USERS',
-                        'route' => ['controller' => 'user', 'action' => 'index', 'admin' => true, 'plugin' => false]
-                    ],
                     'CONFIG__GENERAL_PREFERENCES' => [
                         'icon' => 'cog',
                         'permission' => 'MANAGE_CONFIGURATION',
                         'route' => ['controller' => 'configuration', 'action' => 'index', 'admin' => true, 'plugin' => false]
-                    ],
-                    'STATS__TITLE' => [
-                        'icon' => 'far fa-chart-bar',
-                        'permission' => 'VIEW_STATISTICS',
-                        'route' => ['controller' => 'statistics', 'action' => 'index', 'admin' => true, 'plugin' => false]
                     ],
                     'MAINTENANCE__TITLE' => [
                         'icon' => 'fas fa-hand-paper',
@@ -330,11 +318,6 @@ class AppController extends Controller
                         'icon' => 'mobile',
                         'permission' => 'MANAGE_THEMES',
                         'route' => ['controller' => 'theme', 'action' => 'index', 'admin' => true, 'plugin' => false]
-                    ],
-                    'NOTIFICATION__TITLE' => [
-                        'icon' => 'flag',
-                        'permission' => 'MANAGE_NOTIFICATIONS',
-                        'route' => ['controller' => 'notifications', 'action' => 'index', 'admin' => true, 'plugin' => false]
                     ],
                     'HISTORY__VIEW_GLOBAL' => [
                         'icon' => 'table',

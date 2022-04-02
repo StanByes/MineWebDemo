@@ -186,23 +186,6 @@ if (!empty($flash_messages)) {
 <?= $this->Html->script('form.js') ?>
 <?= $this->Html->script('notification.js') ?>
     <script>
-        <?php if($isConnected) { ?>
-        // Notifications
-        var notification = new $.Notification({
-            'url': {
-                'get': '<?= $this->Html->url(['plugin' => false, 'controller' => 'notifications', 'action' => 'getAll']) ?>',
-                'clear': '<?= $this->Html->url(['plugin' => false, 'controller' => 'notifications', 'action' => 'clear', 'NOTIF_ID']) ?>',
-                'clearAll': '<?= $this->Html->url(['plugin' => false, 'controller' => 'notifications', 'action' => 'clearAll']) ?>',
-                'markAsSeen': '<?= $this->Html->url(['plugin' => false, 'controller' => 'notifications', 'action' => 'markAsSeen', 'NOTIF_ID']) ?>',
-                'markAllAsSeen': '<?= $this->Html->url(['plugin' => false, 'controller' => 'notifications', 'action' => 'markAllAsSeen']) ?>'
-            },
-            'messages': {
-                'markAsSeen': '<?= $Lang->get('NOTIFICATION__MARK_AS_SEEN') ?>',
-                'notifiedBy': '<?= $Lang->get('NOTIFICATION__NOTIFIED_BY') ?>'
-            }
-        });
-        <?php } ?>
-
         // Config FORM/APP.JS
 
         var LIKE_URL = "<?= $this->Html->url(['controller' => 'news', 'action' => 'like']) ?>";

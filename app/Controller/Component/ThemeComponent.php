@@ -348,7 +348,7 @@ class ThemeComponent extends CakeObject
     {
         if (isset($this->themesAvailable['all']))
             foreach ($this->themesAvailable['all'] as $theme)
-                if (strtolower($theme['slug']) === strtolower($slug))
+                if (isset($theme['slug']) && strtolower($theme['slug']) === strtolower($slug))
                     return $theme;
         return false;
     }

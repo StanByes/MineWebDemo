@@ -87,64 +87,6 @@
                             class="fa fa-power-off"></i> <?= $Lang->get('USER__LOGOUT') ?></a>
             </li>
         </ul>
-
-        <?= $this->Html->script('notification.js') ?>
-
-        <script type="text/javascript">
-            var notification = new $.Notification({
-                'notification_type': 'admin',
-                'limit': 5,
-                'url': {
-                    'get': '<?= $this->Html->url(['plugin' => false, 'admin' => false, 'controller' => 'notifications', 'action' => 'getAll']) ?>',
-                    'clear': '<?= $this->Html->url(['plugin' => false, 'admin' => false, 'controller' => 'notifications', 'action' => 'clear', 'NOTIF_ID']) ?>',
-                    'clearAll': '<?= $this->Html->url(['plugin' => false, 'admin' => false, 'controller' => 'notifications', 'action' => 'clearAll']) ?>',
-                    'markAsSeen': '<?= $this->Html->url(['plugin' => false, 'admin' => false, 'controller' => 'notifications', 'action' => 'markAsSeen', 'NOTIF_ID']) ?>',
-                    'markAllAsSeen': '<?= $this->Html->url(['plugin' => false, 'admin' => false, 'controller' => 'notifications', 'action' => 'markAllAsSeen']) ?>'
-                },
-                'messages': {
-                    'markAsSeen': '<?= $Lang->get('NOTIFICATION__MARK_AS_SEEN') ?>',
-                    'notifiedBy': '<?= $Lang->get('NOTIFICATION__NOTIFIED_BY') ?>'
-                },
-                'indicator': {
-                    'element': '#notification-indicator',
-                    'class': 'label label-warning',
-                    'style': {},
-                    'defaultContent': '<i class="fa fa-bell-o"></i>'
-                },
-                'list': {
-                    'element': '#notification-container',
-                    'container': {
-                        'type': '',
-                        'class': '',
-                        'style': ''
-                    },
-                    'notification': {
-                        'type': 'a',
-                        'class': 'dropdown-item',
-                        'style': '',
-                        'content': '{CONTENT}',
-                        'from': {
-                            'type': '',
-                            'class': '',
-                            'style': '',
-                            'content': ''
-                        },
-                        'seen': {
-                            'element': {
-                                'style': '',
-                                'class': ''
-                            },
-                            'btn': {
-                                'element': '.mark-as-seen',
-                                'style': '',
-                                'class': 'hidden',
-                                'attr': [{'onclick': ''}],
-                            }
-                        }
-                    }
-                }
-            });
-        </script>
     </nav>
 
     <aside class="main-sidebar sidebar-dark-lightblue elevation-4">

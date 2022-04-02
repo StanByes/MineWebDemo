@@ -28,12 +28,6 @@ class AdminController extends AppController
             $registered_users = $this->User->find('count');
             $registered_users_today = $this->User->find('count', ['conditions' => ['created LIKE' => date('Y-m-d') . '%']]);
 
-            $this->loadModel('Visit');
-            $count_visits = $this->Visit->getVisitsCount();
-            $count_visits_before_before_yesterday = $this->Visit->getVisitsByDay(date('Y-m-d', strtotime('-3 day')))['count'];
-            $count_visits_before_yesterday = $this->Visit->getVisitsByDay(date('Y-m-d', strtotime('-2 day')))['count'];
-            $count_visits_yesterday = $this->Visit->getVisitsByDay(date('Y-m-d', strtotime('-1 day')))['count'];
-            $count_visits_today = $this->Visit->getVisitsByDay(date('Y-m-d'))['count'];
             $purchase = [];
             $purchase_today = [];
             $items_solded = [];
@@ -92,7 +86,6 @@ class AdminController extends AppController
                 'nbr_news',
                 'nbr_comments', 'nbr_comments_type',
                 'registered_users', 'registered_users_today',
-                'count_visits', 'count_visits_before_before_yesterday', 'count_visits_before_yesterday', 'count_visits_yesterday', 'count_visits_today',
                 'purchase', 'purchase_today', 'items_solded',
                 'servers',
                 'search_cmd'
