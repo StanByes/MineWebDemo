@@ -54,10 +54,8 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav themes">
                     <li class="li-nav">
-                        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                        <button type="button" class="btn btn-success dropdown-toggle center" data-toggle="dropdown">
                             <span class="caret"></span>
-                            <span class="notification-indicator"></span>
-                            <span class="sr-only">Toggle Dropdown</span>
                             Choisir un thème
                         </button>
                         <div class="dropdown-menu dropdown-menu-large row" role="menu">
@@ -80,8 +78,11 @@
                     <?php
                     if (!empty($nav)) {
                         $i = 0;
-                        foreach ($nav as $key => $value) { ?>
-                            <?php if (empty($value['Navbar']['submenu'])) { ?>
+                        foreach ($nav as $key => $value) {
+                            if ($value['Navbar']['name'] === "Quitter le thème")
+                                continue;
+                                
+                             if (empty($value['Navbar']['submenu'])) { ?>
                                 <li class="li-nav<?php if ($this->params['controller'] == $value['Navbar']['name']) { ?> actived<?php } ?>">
                                     <a href="<?= $value['Navbar']['url'] ?>"<?= ($value['Navbar']['open_new_tab']) ? ' target="_blank"' : '' ?>>
                                         <?php if (!empty($value['Navbar']['icon'])): ?>
