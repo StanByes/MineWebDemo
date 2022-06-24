@@ -82,12 +82,8 @@ ul.nav li.dropdown ul.dropdown-menu {
 }
 
 .themes {
-	position: absolute;
-	left: 46%;
-
-	flex-wrap: wrap;
-	display: inline-flex;
-	width: 99.5%;
+	position: relative;
+	left: 32%;
 }
 
 /*

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Eywek">
-    
+
     <?= $this->element('seo') ?>
 
     <!-- Font Awesome 5 -->
@@ -42,7 +42,7 @@
         <div class="container nav-content">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1">
+                        data-target="#mainNavbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -51,7 +51,7 @@
                 <a class="navbar-brand"
                    href="<?= $this->Html->url('/') ?>"><?= (isset($website_name)) ? $website_name : 'MineWeb' ?></a>
             </div>
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="nav navbar-nav themes">
                     <li class="li-nav">
                         <button type="button" class="btn btn-success dropdown-toggle center" data-toggle="dropdown">
@@ -59,7 +59,7 @@
                             Choisir un thème
                         </button>
                         <div class="dropdown-menu dropdown-menu-large row" role="menu">
-                            <ul style="list-style: none; padding: 0px;">
+                            <ul style="list-style: none; padding: 0;">
                                 <?php
                                     if (!empty($themesInstalled)) {
                                         foreach($themesInstalled as $theme) { ?>
@@ -72,16 +72,13 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="li-nav">
-                        <a href="<?= $this->Html->url('/') ?>"><?= $Lang->get('GLOBAL__HOME') ?></a>
-                    </li>
                     <?php
                     if (!empty($nav)) {
                         $i = 0;
                         foreach ($nav as $key => $value) {
                             if ($value['Navbar']['name'] === "Quitter le thème")
                                 continue;
-                                
+
                              if (empty($value['Navbar']['submenu'])) { ?>
                                 <li class="li-nav<?php if ($this->params['controller'] == $value['Navbar']['name']) { ?> actived<?php } ?>">
                                     <a href="<?= $value['Navbar']['url'] ?>"<?= ($value['Navbar']['open_new_tab']) ? ' target="_blank"' : '' ?>>
